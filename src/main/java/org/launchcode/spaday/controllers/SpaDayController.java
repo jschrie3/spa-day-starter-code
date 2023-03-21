@@ -45,8 +45,15 @@ public class SpaDayController {
                 "</select><br>" +
                 "Manicure or Pedicure? <br>" +
                 "<select name = 'manipedi'>" +
+
+                // BONUS MISSION 13.11.6(2) Modify the form to allow the user to select either a manicure or
+                // pedicure or both. If the user selects both, display both the manicure and pedicure
+                // descriptions on the Spa Menu page.
+
                 "<option value = 'manicure'>Manicure</option>" +
                 "<option value = 'pedicure'>Pedicure</option>" +
+                // add the option for both
+                "<option value = 'both'>Mani/Pedi</option>" +
                 "</select><br>" +
                 "<input type = 'submit' value = 'Submit'>" +
                 "</form>";
