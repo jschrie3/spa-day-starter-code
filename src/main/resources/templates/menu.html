@@ -1,3 +1,5 @@
+<!--CHAPTER 13 STUDIO: SPA DAY-->
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th = "http://www.thymeleaf.org/">
 <head>
@@ -7,9 +9,60 @@
 </head>
 <body>
 <h1>My Super Fancy Spa</h1>
+
 <div id = "clientProfile">
+
+    <!--13.11.2(1) Add an h2 that says “My profile”.-->
+    <h2>My Profile</h2>
+
+    <!--13.11.2(2) Add a p tag and use th:text to bring in the value of name.-->
+    <p th:text="${name}"></p>
+
+    <!--13.11.2(3) Add a p tag and use th:text to bring in the value of skintype.-->
+    <p th:text="${skintype}"></p>
+
+    <!--13.11.2(4) Add a p tag and use th:text to bring in the value of manipedi.-->
+    <p th:text="${manipedi}"></p>
+
 </div>
+
 <div id = "servicesMenu">
+
+<!--13.11.3(1) Add a table and iteratively (using our th:block and th:each combo) add rows for the
+values in appropriateFacials.-->
+    <div>
+        <h3>Facial Treatments</h3>
+        <p>The facial treatments below are recommended by our estheticians for your given skin type.</p>
+
+        <table>
+            <th:block th:each="service : ${appropriateFacials}">
+                    <tr>
+                        <td th:text="${service}"></td>
+                    </tr>
+            </th:block>
+        </table>
+    </div>
+
+    <!--13.11.4(1) We want to put the description in a div along with an h3 stating that it is either a
+    manicure or pedicure. This new div should be inside the servicesMenu div.-->
+
+    <!--13.11.4(2) Use th:if to determine if the value of manipedi is a "manicure" or "pedicure".-->
+
+    <!--13.11.4(2a) If the value of manipedi is "manicure", the div element containing the h3 that says "Manicure" needs to be on the page and the p tag needs to be replaced with the fragment of the manicure description from fragments.html.-->
+
+    <div th:if="${manipedi.equals('manicure')}">
+        <h3>Manicure</h3>
+        <p th:replace="~{fragments :: manicureDescription}"></p>
+    </div>
+
+    <!--13.11.4(2b) If the value of manipedi is "pedicure", the div element containing the h3 that says "Pedicure" needs to be on the page and the p tag needs to be replaced with the fragment of the pedicure description from fragments.html.-->
+
+    <div th:if="${manipedi.equals('pedicure')}">
+        <h3>Pedicure</h3>
+        <p th:replace="~{fragments :: pedicureDescription}"></p>
+    </div>
+
 </div>
+
 </body>
 </html>
