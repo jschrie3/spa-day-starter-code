@@ -1,0 +1,16 @@
+<!--TODO 14.6.1(2): Create a new folder, user/ within resources/templates-->
+<!--TODO 14.6.1(3): Create index.html and add.html templates within resources/templates/user/-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+
+<!--TODO 14.6.5(1): Once registered, we want the user to access the form selecting their spa services. In user/index.html, add a th:href element to take the user back to the root path, /, of the app, where the serviceSelection template will be rendered.-->
+    <p>Click <a th:href="@{/}">here</a> to create your customized service profile.</p>
+
+</body>
+</html>
